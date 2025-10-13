@@ -6,5 +6,4 @@ radio = st.slider("Selecciona el radio",0.0, 10.0, 5.0)
 #calculo del area
 area = math.pi * radio **2
 #Mostrar resultado
-st.write("El area del circulo {radio} es:
-  {area: .2f}")
+st.write(f"El area del circulo {radio} es {area: .2f}")
