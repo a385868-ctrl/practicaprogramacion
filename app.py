@@ -89,13 +89,13 @@ amp = st.slider("Amplitud", 0.1, 2.0, 1.0)
 x = np.linspace(0, rango, 300)
 
 if funcion == "Seno":
-y = amp * np.sin(x)
+    y = amp * np.sin(x)
 elif funcion == "Coseno":
-y = amp * np.cos(x)
+    y = amp * np.cos(x)
 elif funcion == "Tangente":
-y = amp * np.tan(x)
+    y = amp * np.tan(x)
 
-fig2, ax2 = plt.subplots()
-ax2.plot(x, y, color=color)
-ax2.set_title(f"Función {funcion}")
-st.pyplot(fig2)
+    fig2, ax2 = plt.subplots()
+    ax2.plot(x, y, color=color)
+    ax2.set_title(f"Función {funcion}")
+    st.pyplot(fig2)
