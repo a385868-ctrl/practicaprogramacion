@@ -54,25 +54,23 @@ st.success(f"Perímetro: {perimetro:.2f}")
 import streamlit as st
 import matplotlib.pyplot as plt
 
-st.header("Parte 2: Visualización de Figuras")
+import matplotlib.pyplot as plt
 
-color = st.color_picker("Elige un color", "#0000FF")
+st.subheader("Visualización de la figura")
 
-# Variables necesarias: asegúrate de definirlas antes de usarlas
-figura = st.selectbox("Selecciona una figura", ["Círculo", "Triángulo", "Rectángulo", "Cuadrado"])
+# Selector de color
+color = st.color_picker("Selecciona un color para la figura", "#00f900")
 
+# Crear figura y ejes
 fig, ax = plt.subplots()
 
 if figura == "Círculo":
-    radio = st.slider("Radio", 1, 10, 5)
-    circle = plt.Circle((0, 0), radio, color=color, fill=False)
+    circle = plt.Circle((0, 0), radio, color=color, fill=False, linewidth=2)
     ax.add_patch(circle)
     ax.set_xlim(-radio * 1.2, radio * 1.2)
     ax.set_ylim(-radio * 1.2, radio * 1.2)
 
 elif figura == "Triángulo":
-    base = st.slider("Base", 1, 10, 5)
-    altura = st.slider("Altura", 1, 10, 5)
     puntos = [[0, 0], [base, 0], [base / 2, altura]]
     triangulo = plt.Polygon(puntos, edgecolor=color, fill=False, linewidth=2)
     ax.add_patch(triangulo)
@@ -80,24 +78,24 @@ elif figura == "Triángulo":
     ax.set_ylim(-1, altura + 2)
 
 elif figura == "Rectángulo":
-    base = st.slider("Base", 1, 10, 5)
-    altura = st.slider("Altura", 1, 10, 5)
     rect = plt.Rectangle((0, 0), base, altura, edgecolor=color, fill=False, linewidth=2)
     ax.add_patch(rect)
     ax.set_xlim(-1, base + 1)
     ax.set_ylim(-1, altura + 1)
 
 elif figura == "Cuadrado":
-    lado = st.slider("Lado", 1, 10, 5)
     rect = plt.Rectangle((0, 0), lado, lado, edgecolor=color, fill=False, linewidth=2)
     ax.add_patch(rect)
     ax.set_xlim(-1, lado + 1)
     ax.set_ylim(-1, lado + 1)
 
+# Ajustes visuales
 ax.set_aspect('equal')
 ax.axis('off')  # Ocultar ejes
 
+# Mostrar figura
 st.pyplot(fig)
+
 
 st.header("Parte 3: Funciones Trigonométricas")
 
