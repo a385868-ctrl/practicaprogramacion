@@ -123,5 +123,3 @@ ax.legend()
 ax.grid(True)
 
 st.pyplot(fig)
-
-# Parte 4 — Extensión creativa: pestañas y calculadora de Pitágoras
