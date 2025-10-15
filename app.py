@@ -12,5 +12,5 @@ st.write(f"El area del circulo {radio} es {area: .2f}")
 
 import streamlit as st
 import math
-st.title(""Calculadora de Áreas y perímetros")
+st.title("Calculadora de Áreas y perímetros")
 figura = st.selectbox("Selecciona una figura:", ["Círculo", "Triángulo", "Rectángulo", "Cuadrado"])
