@@ -59,33 +59,33 @@ color = st.color_picker("Elige un color", "#0000FF")
 fig, ax = plt.subplots()
 
 if figura == "Círculo":
-circle = plt.Circle((0, 0), r, color=color, fill=False)
-ax.add_artist(circle)
-ax.set_xlim(-r-1, r+1)
-ax.set_ylim(-r-1, r+1)
-ax.set_aspect('equal')
+    circle = plt.Circle((0, 0), r, color=color, fill=False)
+    ax.set_xlim(-radio * 1.2, radio * 1.2)
+    ax. set ylin(-radio * 1.2, radio * 1.2)
 
-elif figura == "Rectángulo":
-rect = plt.Rectangle((0, 0), base, altura, color=color, fill=False)
-ax.add_patch(rect)
-ax.set_xlim(0, base+1)
-ax.set_ylim(0, altura+1)
+elif figura = "Triángulo":
+    puntos = ([0, 0], [base, 0], [base / 2, altura]]
+    triangulo = plt. Polygon (puntos, edgecolor=color, fill-False, linewidth=2)
+    ax. add patch(triangulo)
+    ax.set_xlim(-1, base + 1)
+    ax. set ylin(-1, altura + 2)
+    
+elif figura = "Rectángulo" :
+    rect = plt.Rectangle((0, 0), base, altura, edgecolor=color, fill-False, linewidth=2)
+    ax. add patch(rect)
+    ax.set_xlim(-1, base + 1)
+    ax. set_ylin(-1, altura + 1)
+    
+elif figura = "Cuadrado":
+    rect - plt.Rectangle((0, 0), lado, lado, edgecolor=color, fill-false, Linewidth=2)
+    ax. add patch(rect)
+    ax. set xlin(-1, lado + 1)
+    ax.setyLim(-1, 1ado + 1)
+    
+ax.set _aspect ('equal')
+ax.axis ('off") = Ocultar ejes
 
-elif figura == "Cuadrado":
-square = plt.Rectangle((0, 0), lado, lado, color=color, fill=False)
-ax.add_patch(square)
-ax.set_xlim(0, lado+1)
-ax.set_ylim(0, lado+1)
-
-elif figura == "Triángulo":
-# triángulo sencillo con base b y altura h
-triangle = plt.Polygon([[0,0], [b,0], [b/2,h]], color=color, fill=False)
-ax.add_patch(triangle)
-ax.set_xlim(0, b+1)
-ax.set_ylim(0, h+1)
-
-st.pyplot(fig)
-
+st. pyplot(fig)
 
 st.header("Parte 3: Funciones Trigonométricas")
 
