@@ -83,7 +83,7 @@ elif figura = "Cuadrado":
     ax.setyLim(-1, lado + 1)
     
 ax.set _aspect ('equal')
-ax.axis ('off") = Ocultar ejes
+ax.axis ('off') #ocultar ejes
 
 st. pyplot(fig)
 
