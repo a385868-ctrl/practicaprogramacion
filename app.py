@@ -65,10 +65,10 @@ if figura == "Círculo":
 
 elif figura == "Triángulo":
     puntos = ([0, 0], [base, 0], [base / 2, altura])
-    triangulo = plt. Polygon (puntos, edgecolor=color, fill-False, linewidth=2)
-    ax. add patch(triangulo)
+    triangulo = plt. Polygon (puntos, edgecolor=color, fill=False, linewidth=2)
+    ax. add_patch(triangulo)
     ax.set_xlim(-1, base + 1)
-    ax. set ylin(-1, altura + 2)
+    ax. set_ylim(-1, altura + 2)
     
 elif figura = "Rectángulo" :
     rect = plt.Rectangle((0, 0), base, altura, edgecolor=color, fill-False, linewidth=2)
