@@ -149,18 +149,18 @@ with tab_pitagoras:
 
     opcion = st.radio("¿Qué deseas calcular?", ["Hipotenusa", "Cateto"])
 
-    if opcion == "Hipotenusa":
+if opcion == "Hipotenusa":
         cateto1 = st.number_input("Introduce el cateto 1", min_value=0.0, value=3.0)
         cateto2 = st.number_input("Introduce el cateto 2", min_value=0.0, value=4.0)
         hipotenusa = math.sqrt(cateto1**2 + cateto2**2)
         st.success(f"La hipotenusa es: {hipotenusa:.2f}")
 
-    else:  # Calcular cateto
-        hipotenusa = st.number_input("Introduce la hipotenusa", min_value=0.0, value=5.0)
+else:  # Calcular cateto
+         hipotenusa = st.number_input("Introduce la hipotenusa", min_value=0.0, value=5.0)
         cateto_conocido = st.number_input("Introduce el cateto conocido", min_value=0.0, value=3.0)
 
-    if hipotenusa <= cateto_conocido:
+if hipotenusa <= cateto_conocido:
             st.error("La hipotenusa debe ser mayor que el cateto conocido.")
-     else:
+else:
             cateto_desconocido = math.sqrt(hipotenusa**2 - cateto_conocido**2)
             st.success(f"El cateto desconocido es: {cateto_desconocido:.2f}")
