@@ -51,41 +51,53 @@ elif figura == "Cuadrado":
 st.success(f"Área: {area:.2f}")
 st.success(f"Perímetro: {perimetro:.2f}")
 
+import streamlit as st
 import matplotlib.pyplot as plt
+
 st.header("Parte 2: Visualización de Figuras")
 
 color = st.color_picker("Elige un color", "#0000FF")
 
+# Variables necesarias: asegúrate de definirlas antes de usarlas
+figura = st.selectbox("Selecciona una figura", ["Círculo", "Triángulo", "Rectángulo", "Cuadrado"])
+
 fig, ax = plt.subplots()
 
 if figura == "Círculo":
-    circle = plt.Circle((0, 0), r, color=color, fill=False)
+    radio = st.slider("Radio", 1, 10, 5)
+    circle = plt.Circle((0, 0), radio, color=color, fill=False)
+    ax.add_patch(circle)
     ax.set_xlim(-radio * 1.2, radio * 1.2)
-    ax. set_ylim(-radio * 1.2, radio * 1.2)
+    ax.set_ylim(-radio * 1.2, radio * 1.2)
 
 elif figura == "Triángulo":
-    puntos = ([0, 0], [base, 0], [base / 2, altura])
-    triangulo = plt. Polygon (puntos, edgecolor=color, fill=False, linewidth=2)
-    ax. add_patch(triangulo)
+    base = st.slider("Base", 1, 10, 5)
+    altura = st.slider("Altura", 1, 10, 5)
+    puntos = [[0, 0], [base, 0], [base / 2, altura]]
+    triangulo = plt.Polygon(puntos, edgecolor=color, fill=False, linewidth=2)
+    ax.add_patch(triangulo)
     ax.set_xlim(-1, base + 1)
-    ax. set_ylim(-1, altura + 2)
-    
-elif figura == "Rectángulo" :
-    rect = plt.Rectangle((0, 0), base, altura, edgecolor=color, fill-False, linewidth=2)
-    ax. add patch(rect)
-    ax.set_xlim(-1, base + 1)
-    ax. set_ylin(-1, altura + 1)
-    
-elif figura = "Cuadrado":
-    rect - plt.Rectangle((0, 0), lado, lado, edgecolor=color, fill-false, Linewidth=2)
-    ax. add patch(rect)
-    ax. set xlin(-1, lado + 1)
-    ax.setyLim(-1, lado + 1)
-    
-ax.set _aspect ('equal')
-ax.axis ('off') #ocultar ejes
+    ax.set_ylim(-1, altura + 2)
 
-st. pyplot(fig)
+elif figura == "Rectángulo":
+    base = st.slider("Base", 1, 10, 5)
+    altura = st.slider("Altura", 1, 10, 5)
+    rect = plt.Rectangle((0, 0), base, altura, edgecolor=color, fill=False, linewidth=2)
+    ax.add_patch(rect)
+    ax.set_xlim(-1, base + 1)
+    ax.set_ylim(-1, altura + 1)
+
+elif figura == "Cuadrado":
+    lado = st.slider("Lado", 1, 10, 5)
+    rect = plt.Rectangle((0, 0), lado, lado, edgecolor=color, fill=False, linewidth=2)
+    ax.add_patch(rect)
+    ax.set_xlim(-1, lado + 1)
+    ax.set_ylim(-1, lado + 1)
+
+ax.set_aspect('equal')
+ax.axis('off')  # Ocultar ejes
+
+st.pyplot(fig)
 
 st.header("Parte 3: Funciones Trigonométricas")
 
