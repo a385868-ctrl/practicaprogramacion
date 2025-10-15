@@ -99,10 +99,6 @@ elif funcion == "Tangente":
     ax2.plot(x, y, color=color)
     ax2.set_title(f"Función {funcion}")
     st.pyplot(fig2)
-st.header("Parte 3: Relaciones Trigonométricas")
-
-max_x = st.slider("Selecciona el rango máximo de x (en radianes)", min_value=1.0, max_value=10.0, value=2*math.pi, step=0.1)
-amplitud = st.slider("Amplitud", 0.1, 5.0, 1.0)
 
 x = np.linspace(0, max_x, 500)
 
