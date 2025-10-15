@@ -64,7 +64,7 @@ if figura == "Círculo":
     ax. set ylin(-radio * 1.2, radio * 1.2)
 
 elif figura = "Triángulo":
-    puntos = ([0, 0], [base, 0], [base / 2, altura]]
+    puntos = ([0, 0], [base, 0], [base / 2, altura])
     triangulo = plt. Polygon (puntos, edgecolor=color, fill-False, linewidth=2)
     ax. add patch(triangulo)
     ax.set_xlim(-1, base + 1)
