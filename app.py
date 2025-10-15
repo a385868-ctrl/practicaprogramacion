@@ -5,9 +5,6 @@ import numpy as np
 
 st.set_page_config(page_title="Calculadora Geométrica", layout="centered")
 
-# ========================
-# PARTE 1: Cálculos Geométricos
-# ========================
 st.title("Calculadora Geométrica y Visualización 🔺📐📊")
 st.header("Parte 1: Área y Perímetro")
 
@@ -45,9 +42,6 @@ elif figura == "Cuadrado":
 st.success(f"Área: {area:.2f}")
 st.success(f"Perímetro: {perimetro:.2f}")
 
-# ========================
-# PARTE 2: Visualización
-# ========================
 st.header("Parte 2: Visualización de la Figura")
 
 # Selector de color
@@ -86,9 +80,6 @@ ax.axis('off')  # Ocultar ejes
 
 st.pyplot(fig)
 
-# ========================
-# PARTE 3: Funciones Trigonométricas
-# ========================
 st.header("Parte 3: Relaciones Trigonométricas")
 
 max_x = st.slider("Selecciona el rango máximo de x (en radianes)", min_value=1.0, max_value=10.0, value=2*math.pi, step=0.1)
