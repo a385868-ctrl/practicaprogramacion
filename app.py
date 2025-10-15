@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 st.title("Mi aplicación para calcular el area de un circulo 🧮")
+st.sidebar.write("Danna Sofia Arredondo Escalera 385868 3L")
 import math
 #Widget para ingresar el radio
 radio = st.slider("Selecciona el radio", 0.0, 10.0, 5.0)
