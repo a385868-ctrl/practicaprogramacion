@@ -99,3 +99,26 @@ elif funcion == "Tangente":
     ax2.plot(x, y, color=color)
     ax2.set_title(f"Función {funcion}")
     st.pyplot(fig2)
+st.header("Parte 3: Relaciones Trigonométricas")
+
+max_x = st.slider("Selecciona el rango máximo de x (en radianes)", min_value=1.0, max_value=10.0, value=2*math.pi, step=0.1)
+amplitud = st.slider("Amplitud", 0.1, 5.0, 1.0)
+
+x = np.linspace(0, max_x, 500)
+
+fig, ax = plt.subplots(figsize=(8, 4))
+ax.plot(x, amplitud * np.sin(x), label='sin(x)', color='blue')
+ax.plot(x, amplitud * np.cos(x), label='cos(x)', color='orange')
+
+# Tangente con limitación
+tan_values = amplitud * np.tan(x)
+tan_values = np.clip(tan_values, -10, 10)
+ax.plot(x, tan_values, label='tan(x) (limitado)', color='green')
+
+ax.set_title("Funciones Trigonométricas")
+ax.set_xlabel("x (radianes)")
+ax.set_ylabel("Amplitud ajustada")
+ax.legend()
+ax.grid(True)
+
+st.pyplot(fig)
