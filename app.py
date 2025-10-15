@@ -1,7 +1,5 @@
 import streamlit as st
 import math
-import numpy as np
-import matplotlib.pyplot as plt
 
 st.title("Mi aplicacion para calcular el area de un circulo 🔢 ")
 
