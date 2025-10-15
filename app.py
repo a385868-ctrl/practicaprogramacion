@@ -80,7 +80,7 @@ elif figura = "Cuadrado":
     rect - plt.Rectangle((0, 0), lado, lado, edgecolor=color, fill-false, Linewidth=2)
     ax. add patch(rect)
     ax. set xlin(-1, lado + 1)
-    ax.setyLim(-1, 1ado + 1)
+    ax.setyLim(-1, lado + 1)
     
 ax.set _aspect ('equal')
 ax.axis ('off") = Ocultar ejes
