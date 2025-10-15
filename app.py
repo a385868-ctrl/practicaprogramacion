@@ -80,26 +80,22 @@ ax.axis('off')  # Ocultar ejes
 
 st.pyplot(fig)
 
-st.header("Parte 3: Relaciones Trigonométricas")
+st.header("Parte 3: Funciones Trigonométricas")
 
-max_x = st.slider("Selecciona el rango máximo de x (en radianes)", min_value=1.0, max_value=10.0, value=2*math.pi, step=0.1)
-amplitud = st.slider("Amplitud", 0.1, 5.0, 1.0)
+funcion = st.selectbox("Selecciona una función:", ["Seno", "Coseno", "Tangente"])
+rango = st.slider("Rango en x (0 a ...)", min_value=1, max_value=20, value=6)
+amp = st.slider("Amplitud", 0.1, 2.0, 1.0)
 
-x = np.linspace(0, max_x, 500)
+x = np.linspace(0, rango, 300)
 
-fig, ax = plt.subplots(figsize=(8, 4))
-ax.plot(x, amplitud * np.sin(x), label='sin(x)', color='blue')
-ax.plot(x, amplitud * np.cos(x), label='cos(x)', color='orange')
+if funcion == "Seno":
+y = amp * np.sin(x)
+elif funcion == "Coseno":
+y = amp * np.cos(x)
+elif funcion == "Tangente":
+y = amp * np.tan(x)
 
-# Tangente con limitación
-tan_values = amplitud * np.tan(x)
-tan_values = np.clip(tan_values, -10, 10)
-ax.plot(x, tan_values, label='tan(x) (limitado)', color='green')
-
-ax.set_title("Funciones Trigonométricas")
-ax.set_xlabel("x (radianes)")
-ax.set_ylabel("Amplitud ajustada")
-ax.legend()
-ax.grid(True)
-
-st.pyplot(fig)
+fig2, ax2 = plt.subplots()
+ax2.plot(x, y, color=color)
+ax2.set_title(f"Función {funcion}")
+st.pyplot(fig2)
