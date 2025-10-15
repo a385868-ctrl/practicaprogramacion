@@ -63,7 +63,7 @@ if figura == "Círculo":
     ax.set_xlim(-radio * 1.2, radio * 1.2)
     ax. set_ylim(-radio * 1.2, radio * 1.2)
 
-elif figura = "Triángulo":
+elif figura == "Triángulo":
     puntos = ([0, 0], [base, 0], [base / 2, altura])
     triangulo = plt. Polygon (puntos, edgecolor=color, fill-False, linewidth=2)
     ax. add patch(triangulo)
