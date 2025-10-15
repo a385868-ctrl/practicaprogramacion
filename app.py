@@ -61,7 +61,7 @@ fig, ax = plt.subplots()
 if figura == "Círculo":
     circle = plt.Circle((0, 0), r, color=color, fill=False)
     ax.set_xlim(-radio * 1.2, radio * 1.2)
-    ax. set ylin(-radio * 1.2, radio * 1.2)
+    ax. set_ylim(-radio * 1.2, radio * 1.2)
 
 elif figura = "Triángulo":
     puntos = ([0, 0], [base, 0], [base / 2, altura])
