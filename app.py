@@ -54,8 +54,6 @@ st.success(f"Perímetro: {perimetro:.2f}")
 import streamlit as st
 import matplotlib.pyplot as plt
 
-import matplotlib.pyplot as plt
-
 st.subheader("Visualización de la figura")
 
 # Selector de color
