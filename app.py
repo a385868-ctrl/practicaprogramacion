@@ -97,7 +97,7 @@ ax.axis('off')  # Ocultar ejes
 st.pyplot(fig)
 import numpy as np
 
-st.header("🔢 Parte 3 — Relaciones trigonométricas")
+st.header("Parte 3 — Relaciones trigonométricas")
 
 # Slider para seleccionar el rango máximo en radianes (desde 0 hasta max_x)
 max_x = st.slider("Selecciona el rango máximo de x (en radianes)", min_value=1.0, max_value=10.0, value=2*np.pi, step=0.1)
@@ -134,7 +134,7 @@ st.header("⚙️ Parte 4 — Extensión creativa")
 tab_geom, tab_pitagoras = st.tabs(["Geometría", "Teorema de Pitágoras"])
 
 with tab_geom:
-    st.subheader("📐 Calculadora de Áreas y Perímetros y Visualización")
+    st.subheader("Calculadora de Áreas y Perímetros y Visualización")
    
     # (Aquí repetirías el código que tienes para geometría y visualización,
     # o si quieres puedes definir funciones para modularizarlo y solo llamar)
@@ -143,7 +143,7 @@ with tab_geom:
     st.info("La calculadora de áreas, perímetros y visualización se muestra en la Parte 1 y 2.")
 
 with tab_pitagoras:
-    st.subheader("📏 Calculadora del Teorema de Pitágoras")
+    st.subheader("Calculadora del Teorema de Pitágoras")
 
     st.write("Calcula la hipotenusa o un cateto de un triángulo rectángulo.")
 
