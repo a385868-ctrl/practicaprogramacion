@@ -95,29 +95,72 @@ ax.axis('off')  # Ocultar ejes
 
 # Mostrar figura
 st.pyplot(fig)
+import numpy as np
 
+st.header("🔢 Parte 3 — Relaciones trigonométricas")
 
-st.header("Parte 3: Funciones Trigonométricas")
+# Slider para seleccionar el rango máximo en radianes (desde 0 hasta max_x)
+max_x = st.slider("Selecciona el rango máximo de x (en radianes)", min_value=1.0, max_value=10.0, value=2*np.pi, step=0.1)
 
-funcion = st.selectbox("Selecciona una función:", ["Seno", "Coseno", "Tangente"])
-rango = st.slider("Rango en x (0 a ...)", min_value=1, max_value=20, value=6)
-amp = st.slider("Amplitud", 0.1, 2.0, 1.0)
+# Slider para modificar la amplitud
+amp = st.slider("Amplitud", 0.1, 5.0, 1.0)
 
-# Generamos puntos para graficar (sin numpy)
-x_vals = [i * 0.1 for i in range(rango * 10)]
-y_vals = []
+# Generar datos x en el rango 0 a max_x
+x = np.linspace(0, max_x, 500)
 
-for x in x_vals:
-    if funcion == "Seno":
-        y_vals.append(amp * math.sin(x))
-    elif funcion == "Coseno":
-        y_vals.append(amp * math.cos(x))
-    elif funcion == "Tangente":
-        try:
-            y_vals.append(amp * math.tan(x))
-        except:
-            y_vals.append(None)
+# Graficar funciones trigonométricas usando st.pyplot
+fig, ax = plt.subplots(figsize=(8, 4))
 
-# Graficamos con st.line_chart
-chart_data = {"x": x_vals, "y": y_vals}
-st.line_chart(chart_data)
+ax.plot(x, amp * np.sin(x), label='sin(x)')
+ax.plot(x, amp * np.cos(x), label='cos(x)')
+# Para tan(x), limitar el rango para evitar valores muy grandes (usar np.clip para visualización)
+tan_values = amp * np.tan(x)
+tan_values = np.clip(tan_values, -10, 10)  # limitar valores para que gráfico sea legible
+ax.plot(x, tan_values, label='tan(x) (limitado)')
+
+ax.set_title("Funciones trigonométricas")
+ax.set_xlabel("x (radianes)")
+ax.set_ylabel("Amplitud ajustada")
+ax.legend()
+ax.grid(True)
+
+st.pyplot(fig)
+
+# Parte 4 — Extensión creativa: pestañas y calculadora de Pitágoras
+
+st.header("⚙️ Parte 4 — Extensión creativa")
+
+# Crear pestañas para separar Geometría y Trigonometría
+tab_geom, tab_pitagoras = st.tabs(["Geometría", "Teorema de Pitágoras"])
+
+with tab_geom:
+    st.subheader("📐 Calculadora de Áreas y Perímetros y Visualización")
+   
+    # (Aquí repetirías el código que tienes para geometría y visualización,
+    # o si quieres puedes definir funciones para modularizarlo y solo llamar)
+   
+    # Como ya mostraste la geometría arriba, puedes solo mostrar un mensaje aquí
+    st.info("La calculadora de áreas, perímetros y visualización se muestra en la Parte 1 y 2.")
+
+with tab_pitagoras:
+    st.subheader("📏 Calculadora del Teorema de Pitágoras")
+
+    st.write("Calcula la hipotenusa o un cateto de un triángulo rectángulo.")
+
+    opcion = st.radio("¿Qué deseas calcular?", ["Hipotenusa", "Cateto"])
+
+    if opcion == "Hipotenusa":
+        cateto1 = st.number_input("Introduce el cateto 1", min_value=0.0, value=3.0)
+        cateto2 = st.number_input("Introduce el cateto 2", min_value=0.0, value=4.0)
+        hipotenusa = math.sqrt(cateto1**2 + cateto2**2)
+        st.success(f"La hipotenusa es: {hipotenusa:.2f}")
+
+    else:  # Calcular cateto
+        hipotenusa = st.number_input("Introduce la hipotenusa", min_value=0.0, value=5.0)
+        cateto_conocido = st.number_input("Introduce el cateto conocido", min_value=0.0, value=3.0)
+
+    if hipotenusa <= cateto_conocido:
+            st.error("La hipotenusa debe ser mayor que el cateto conocido.")
+     else:
+            cateto_desconocido = math.sqrt(hipotenusa**2 - cateto_conocido**2)
+            st.success(f"El cateto desconocido es: {cateto_desconocido:.2f}")
