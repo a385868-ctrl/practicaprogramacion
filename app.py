@@ -70,7 +70,7 @@ elif figura == "Triángulo":
     ax.set_xlim(-1, base + 1)
     ax. set_ylim(-1, altura + 2)
     
-elif figura = "Rectángulo" :
+elif figura == "Rectángulo" :
     rect = plt.Rectangle((0, 0), base, altura, edgecolor=color, fill-False, linewidth=2)
     ax. add patch(rect)
     ax.set_xlim(-1, base + 1)
