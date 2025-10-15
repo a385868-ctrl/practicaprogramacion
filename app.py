@@ -1,5 +1,7 @@
 import streamlit as st
 import math
+import matplotlib.pyplot as plt
+
 
 st.title("Mi aplicacion para calcular el area de un circulo 🔢 ")
 
@@ -50,19 +52,40 @@ elif figura == "Cuadrado":
 st.success(f"Área: {area:.2f}")
 st.success(f"Perímetro: {perimetro:.2f}")
 
+st.header("Parte 2: Visualización de Figuras")
 
-st.header("Parte 2: Visualización de Figuras (Simple)")
+color = st.color_picker("Elige un color", "#0000FF")
+
+fig, ax = plt.subplots()
 
 if figura == "Círculo":
-    st.latex(r"Área = \pi r^2,\quad Perímetro = 2\pi r")
-elif figura == "Triángulo":
-    st.latex(r"Área = \tfrac{1}{2} b h,\quad Perímetro = a+b+c")
-elif figura == "Rectángulo":
-    st.latex(r"Área = b \times h,\quad Perímetro = 2(b+h)")
-elif figura == "Cuadrado":
-    st.latex(r"Área = l^2,\quad Perímetro = 4l")
+circle = plt.Circle((0, 0), r, color=color, fill=False)
+ax.add_artist(circle)
+ax.set_xlim(-r-1, r+1)
+ax.set_ylim(-r-1, r+1)
+ax.set_aspect('equal')
 
-st.info("Nota: Como no usamos librerías gráficas, solo mostramos las fórmulas.")
+elif figura == "Rectángulo":
+rect = plt.Rectangle((0, 0), base, altura, color=color, fill=False)
+ax.add_patch(rect)
+ax.set_xlim(0, base+1)
+ax.set_ylim(0, altura+1)
+
+elif figura == "Cuadrado":
+square = plt.Rectangle((0, 0), lado, lado, color=color, fill=False)
+ax.add_patch(square)
+ax.set_xlim(0, lado+1)
+ax.set_ylim(0, lado+1)
+
+elif figura == "Triángulo":
+# triángulo sencillo con base b y altura h
+triangle = plt.Polygon([[0,0], [b,0], [b/2,h]], color=color, fill=False)
+ax.add_patch(triangle)
+ax.set_xlim(0, b+1)
+ax.set_ylim(0, h+1)
+
+st.pyplot(fig)
+
 
 st.header("Parte 3: Funciones Trigonométricas")
 
