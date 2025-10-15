@@ -1,6 +1,5 @@
 import streamlit as st
 import math
-import matplotlib.pyplot as plt
 
 
 st.title("Mi aplicacion para calcular el area de un circulo 🔢 ")
@@ -52,6 +51,7 @@ elif figura == "Cuadrado":
 st.success(f"Área: {area:.2f}")
 st.success(f"Perímetro: {perimetro:.2f}")
 
+import matplotlib.pyplot as plt
 st.header("Parte 2: Visualización de Figuras")
 
 color = st.color_picker("Elige un color", "#0000FF")
